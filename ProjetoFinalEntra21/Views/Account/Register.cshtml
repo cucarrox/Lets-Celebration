@@ -1,0 +1,133 @@
+﻿@using ProjetoFinalEntra21.ViewModels
+@model AccountRegisterViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutRegister.cshtml";
+}
+
+<main class="w-full h-full flex justify-center items-center">
+    <div class="flex w-1/2 h-[80%] flex justify-center items-center">
+        <div class="bg-white w-1/2 h-full">
+            <a asp-action="Login" class="cursor-pointer flex m-3 text-blue-700 hover:underline"><svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"></path></svg> Voltar</a>
+            <form asp-action="Register" class="flex flex-col items-center h-full">
+                <div class="text-center my-4">
+                    <h1 class="font-semibold text-2xl">CRIA A SUA CONTA</h1>
+                    <p class="text-[14px]">Não esqueça de fazer login para aproveitar nosso site</p>
+                </div>
+                <!-- Complete user -->
+                <div class="w-full flex flex-col items-center">
+                    <div class="relative left-0 w-[85%] m-1">
+                        <label asp-for="Usuario.Nome" class="font-semibold">Nome completo</label>
+                    </div>
+                    <div class="w-[85%] border-opacity-40 relative flex items-center border cursor-pointer mb-2">
+                        <input asp-for="Usuario.Nome" type="text" placeholder="Digite seu nome completo" class="border-0 text-opacity-90 pl-14 relative z-10 w-full py-3 pr-3 text-sm bg-transparent transition ring-[2.5px] focus:ring-blue-600 hover:ring-blue-600 outline-none">
+                        <div class="absolute inset-0 flex items-center">
+                            <button asp-for="Usuario.Nome" class="relative z-20 p-2 pl-4 border-none opacity-80">
+                                <svg class="text-xl w-[26px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H18C18 18.6863 15.3137 16 12 16C8.68629 16 6 18.6863 6 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"></path></svg>
+                            </button>
+                        </div>
+                        <span asp-validation-for="Usuario.Nome" class="text-danger"></span>
+                    </div>
+                </div>
+                <!-- User -->
+                <div class="w-full flex flex-col items-center">
+                    <div class="relative left-0 w-[85%] m-1">
+                        <label asp-for="Usuario.Username" class="font-semibold">Usuário</label>
+                    </div>
+                    <div class="w-[85%] border-opacity-40 relative flex items-center border cursor-pointer mb-2">
+                        <input asp-for="Usuario.Username" type="text" placeholder="Digite o nome do seu usuario" class="border-0 text-opacity-90 pl-14 relative z-10 w-full py-3 pr-3 text-sm bg-transparent transition ring-[2.5px] focus:ring-blue-600 hover:ring-blue-600 outline-none">
+                        <div class="absolute inset-0 flex items-center">
+                            <button asp-for="Usuario.Username" class="relative z-20 p-2 pl-4 border-none opacity-80">
+                                <svg class="text-xl w-[26px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Usuario.Username" class="text-danger"></span>
+                </div>
+                <div class="w-full flex flex-col items-center">
+                    <div class="relative left-0 w-[85%] m-1">
+                        <label asp-for="Usuario.Email" class="font-semibold">E-mail</label>
+                    </div>
+                    <div class="w-[85%] border-opacity-40 relative flex items-center border cursor-pointer mb-2">
+                        <input asp-for="Usuario.Email" type="email" placeholder="Digite o seu e-mail" class="border-0 text-opacity-90 pl-14 relative z-10 w-full py-3 pr-3 text-sm bg-transparent transition ring-[2.5px] focus:ring-blue-600 hover:ring-blue-600 outline-none">
+                        <div class="absolute inset-0 flex items-center">
+                            <button asp-for="Usuario.Email" class="relative z-20 p-2 pl-4 border-none opacity-80">
+                                <svg class="text-xl w-[26px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Usuario.Email" class="text-danger"></span>
+                </div>
+                <div class="w-full flex flex-col items-center">
+                    <div class="relative left-0 w-[85%] m-1">
+                        <label asp-for="Usuario.Password" class="font-semibold">Senha</label>
+                    </div>
+                    <div class="w-[85%] border-opacity-40 relative flex items-center border cursor-pointer mb-2">
+                        <input asp-for="Usuario.Password" type="password" placeholder="Digite sua senha" class="border-0 text-opacity-90 pl-14 relative z-10 w-full py-3 pr-3 text-sm bg-transparent transition ring-[2.5px] focus:ring-blue-600 hover:ring-blue-600 outline-none">
+                        <div class="absolute inset-0 flex items-center">
+                            <button asp-for="Usuario.Password" class="relative z-20 p-2 pl-4 border-none opacity-80">
+                                <svg class="text-xl w-[26px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.7577 11.8281L18.6066 3.97919L20.0208 5.3934L18.6066 6.80761L21.0815 9.28249L19.6673 10.6967L17.1924 8.22183L15.7782 9.63604L17.8995 11.7574L16.4853 13.1716L14.364 11.0503L12.1719 13.2423C13.4581 15.1837 13.246 17.8251 11.5355 19.5355C9.58291 21.4882 6.41709 21.4882 4.46447 19.5355C2.51184 17.5829 2.51184 14.4171 4.46447 12.4645C6.17493 10.754 8.81633 10.5419 10.7577 11.8281ZM10.1213 18.1213C11.2929 16.9497 11.2929 15.0503 10.1213 13.8787C8.94975 12.7071 7.05025 12.7071 5.87868 13.8787C4.70711 15.0503 4.70711 16.9497 5.87868 18.1213C7.05025 19.2929 8.94975 19.2929 10.1213 18.1213Z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Usuario.Password" class="text-danger"></span>
+                </div>
+                <div class="w-full flex flex-col items-center">
+                    <div class="relative left-0 w-[85%] m-1">
+                        <label class="font-semibold">Confirmar senha</label>
+                    </div>
+                    <div class="w-[85%] border-opacity-40 relative flex items-center border cursor-pointer mb-2">
+                        <input asp-for="Usuario.PasswordConfirmed" type="password" placeholder="Confirme sua senha" class="border-0 text-opacity-90 pl-14 relative z-10 w-full py-3 pr-3 text-sm bg-transparent transition ring-[2.5px] focus:ring-blue-600 hover:ring-blue-600 outline-none">
+                        <div class="absolute inset-0 flex items-center">
+                            <button asp-for="Usuario.PasswordConfirmed" class="relative z-20 p-2 pl-4 border-none opacity-80">
+                                <svg class="text-xl w-[26px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.7577 11.8281L18.6066 3.97919L20.0208 5.3934L18.6066 6.80761L21.0815 9.28249L19.6673 10.6967L17.1924 8.22183L15.7782 9.63604L17.8995 11.7574L16.4853 13.1716L14.364 11.0503L12.1719 13.2423C13.4581 15.1837 13.246 17.8251 11.5355 19.5355C9.58291 21.4882 6.41709 21.4882 4.46447 19.5355C2.51184 17.5829 2.51184 14.4171 4.46447 12.4645C6.17493 10.754 8.81633 10.5419 10.7577 11.8281ZM10.1213 18.1213C11.2929 16.9497 11.2929 15.0503 10.1213 13.8787C8.94975 12.7071 7.05025 12.7071 5.87868 13.8787C4.70711 15.0503 4.70711 16.9497 5.87868 18.1213C7.05025 19.2929 8.94975 19.2929 10.1213 18.1213Z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Usuario.PasswordConfirmed" class="text-danger"></span>
+                </div>
+                <div class="flex justify-between w-[70%] my-3">
+                    <div class="flex flex-col items-center">
+                        <div>
+                            <label asp-for="Usuario.DataNascimento" class="font-semibold">Data de nascimento</label>
+                        </div>
+                        <div class="relative">
+                            <input asp-for="Usuario.DataNascimento" class="border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="date" />
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M14.293 5.293a1 1 0 011.414 1.414l-7 7a1 1 0 01-1.414 0l-7-7A1 1 0 014.293 4.293L10 9.586l3.707-3.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span asp-validation-for="Usuario.DataNascimento"></span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <label asp-for="Usuario.GeneroId" class="font-semibold">Gênero</label>
+                        <div class="relative">
+                            <select asp-for="Usuario.GeneroId" asp-items="ViewBag.GenerosId" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                <!-- Aqui você pode adicionar as opções do seu select -->
+                            </select>
+                            <span asp-validation-for="Usuario.GeneroId"></span>
+                            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 12a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                    <path fill-rule="evenodd" d="M10 0a9 9 0 100 18 9 9 0 000-18zM1 10a9 9 0 1118 0 9 9 0 01-18 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span asp-validation-for="Usuario.GeneroId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="w-full flex justify-center">
+                    <input class="w-[70%] bg-[#fa6632] hover:bg-[#d6430e] transition cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2" type="submit" value="Criar conta">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

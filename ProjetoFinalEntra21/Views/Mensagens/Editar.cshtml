@@ -1,0 +1,30 @@
+﻿@model ProjetoFinalEntra21.Models.Mensagem
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h4><a asp-controller="Mensagens"></a> Editar mensagem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editar" asp-route-EventoId="@Model.Evento.Id">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Corpo" class="control-label">Mensagem</label>
+                <textarea asp-for="Corpo" class="form-control"></textarea>
+                <span asp-validation-for="Corpo" class="text-danger"></span>
+            </div>            
+            <br />
+            <div class="form-group">
+                <a asp-controller="Eventos" asp-action="Detalhes" asp-route-Id="@Model.Evento.Id" class="btn btn-secondary btn-sm">Voltar</a>
+                <input type="submit" value="Salvar" class="btn btn-success btn-sm" /> 
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

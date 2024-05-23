@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProjetoFinalEntra21.Models.UsuarioEvento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main class="w-full h-full">
+    <section class="flex justify-center items-center flex-col">
+        <div class="mt-24 mb-8">
+            <h1 class="text-[35px] font-bold">Meus Eventos</h1>
+        </div>
+        <div class="mb-5 w-3/5">
+            <a asp-action="Adicionar" class="bg-blue-500 hover:bg-blue-700 transition text-white font-bold py-2 px-4 rounded cursor-pointer">Criar evento</a>
+        </div>
+        <div class="w-3/5">
+            <table class="table-auto w-full text-center border-collapse">
+                <thead class="bg-blue-500 text-white">
+                    <tr>
+                        <th class="p-2 border border-white">Título</th>
+                        <th class="p-2 border border-white">Data</th>
+                        <th class="p-2 border border-white">Tipo</th>
+                        <th class="p-2 border border-white">Administrador</th>
+                        <th class="p-2 border border-white">Destinatário</th>
+                        <th class="p-2 border border-white">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="bg-gray-100 hover:bg-gray-200">
+                            <td class="p-2 border border-gray-300">
+                                @Html.DisplayFor(modelItem => item.Eventos.Titulo)
+                            </td>
+                            <td class="p-2 border border-gray-300">
+                                @Html.DisplayFor(modelItem => item.Eventos.DataEvento)
+                            </td>
+                            <td class="p-2 border border-gray-300">
+                                @Html.DisplayFor(modelItem => item.Eventos.TipoEvento.Tipo)
+                            </td>
+                            <td class="p-2 border border-gray-300">
+                                @Html.DisplayFor(modelItem => item.Eventos.Administrador.Nome)
+                            </td>
+                            <td class="p-2 border border-gray-300">
+                                @Html.DisplayFor(modelItem => item.Eventos.Destinatario.Nome)
+                            </td>
+                            <td class="p-2 border border-gray-300 flex justify-center items-center">
+                                <a asp-action="Detalhes" asp-route-id="@item.Eventos.Id" class="btn btn-warning btn-sm "><i class="fas fa-search"></i>Detalhes</a>
+                                @if (ViewBag.UsuarioLogado == item.Eventos.Administrador)
+                                {
+                                    <a asp-action="Excluir" asp-route-id="@item.Eventos.Id" class="btn btn-danger btn-sm "><i class="fas fa-trash-alt"></i>Excluir</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,44 @@
+﻿@model ProjetoFinalEntra21.Models.Mensagem
+
+@{
+    ViewData["Title"] = "Adicionar";
+}
+
+<h1>Adicionar mensagem</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Adicionar" asp-route-eventoId="@(ViewData["EventoId"])">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Corpo" class="control-label">Deixe sua mensagem</label>
+                <textarea asp-for="Corpo" class="form-control"></textarea>
+                <span asp-validation-for="Corpo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label hidden asp-for="Autor" class="control-label"></label>
+                <select hidden asp-for="Autor" class="form-control" asp-items="ViewBag.AutorId" disabled></select>
+            </div>
+            <div class="form-group">
+                <label hidden asp-for="Data" class="control-label"></label>
+                <input hidden asp-for="Data" class="form-control" type="date" />
+                <span hidden asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label hidden asp-for="Status" class="control-label"></label>
+                <select hidden asp-for="Status" class="form-control" asp-items="ViewBag.StatusId" disabled></select>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <input type="submit" value="Enviar" class="btn btn-success btn-sm" />
+                <a asp-controller="Eventos" asp-action="Detalhes" asp-route-Id="@(ViewData["EventoId"])" class="btn btn-secondary btn-sm">Voltar</a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

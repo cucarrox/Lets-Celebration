@@ -1,0 +1,141 @@
+﻿main {
+    background-image: url('img/banner-4.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form {
+    position: relative;
+    display: block;
+    padding: 2.2rem;
+    background: linear-gradient(14deg, rgba(2, 0, 36, 0.8) 0%, rgba(24, 24, 65, 0.7) 66%,
+            rgb(20, 76, 99) 100%), radial-gradient(circle, rgba(2, 0, 36, 0.5) 0%,
+            rgba(32, 15, 53, 0.2) 65%, rgba(14, 29, 28, 0.9) 100%);
+    border: 2px solid #fff;
+    -webkit-box-shadow: rgba(0, 212, 255) 0px 0px 50px -15px;
+    box-shadow: rgba(0, 212, 255) 0px 0px 50px -15px;
+    overflow: hidden;
+    z-index: +1;
+}
+
+.bg-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-size: cover;
+    animation: animateBg 50s linear infinite;
+}
+
+@keyframes animateBg {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.1);
+    animation: animate 3s linear infinite;
+}
+
+.star::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff, transparent);
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
+    }
+}
+
+.star:nth-child(1) {
+    top: 0;
+    right: 0;
+    left: initial;
+    animation-delay: 0s;
+    animation-duration: 1s;
+}
+
+.star:nth-child(2) {
+    top: 0;
+    right: 100px;
+    left: initial;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
+}
+
+.star:nth-child(3) {
+    top: 0;
+    right: 220px;
+    left: initial;
+    animation-delay: 2.75s;
+    animation-duration: 2.75s;
+}
+
+.star:nth-child(4) {
+    top: 0;
+    right: -220px;
+    left: initial;
+    animation-delay: 1.6s;
+    animation-duration: 1.6s;
+}
+
+/* GOOGLE */
+
+.button {
+    max-width: 320px;
+    display: flex;
+    padding: 0.5rem 1.4rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    gap: 0.75rem;
+    color: rgb(65, 63, 63);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.button svg {
+    height: 24px;
+}
+
+.button:hover {
+    transform: scale(1.02);
+}

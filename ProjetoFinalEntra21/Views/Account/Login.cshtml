@@ -1,0 +1,97 @@
+﻿@using ProjetoFinalEntra21.ViewModels
+@model AccountLoginViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<main class="w-full h-full flex justify-center items-center">
+    <div class="flex w-1/2 h-3/5">
+        <div class="bg-white w-1/2 h-full">
+            <!-- FORM -->
+            <form asp-action="Login" class="flex flex-col items-center justify-center h-full">
+                <div class="text-center my-4">
+                    <h1 class="font-semibold text-2xl">FAÇA SEU LOGIN</h1>
+                    <p class="text-[14px]">Crie uma conta e se junte a nossa experiência</p>
+                </div>
+                <!-- USERNAME -->
+                <div class="w-full flex flex-col items-center">
+                    <div class="relative left-0 w-[85%] m-1">
+                        <label asp-for="Username" class="font-semibold">Username</label>
+                    </div>
+                    <div class="w-[85%] border-opacity-40 relative flex items-center border cursor-pointer mb-4">
+                        <input asp-for="Username" type="text" placeholder="Digite seu nome de usuário" class="border-0 text-opacity-90 pl-14 relative z-10 w-full py-3 pr-3 text-sm bg-transparent transition ring-[2.5px] focus:ring-blue-600 hover:ring-blue-600 outline-none">
+                        <div class="absolute inset-0 flex items-center">
+                            <button asp-for="Username" type="submit" class="relative z-20 p-2 pl-4 border-none opacity-80">
+                                <svg class="text-xl w-[26px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- PASSWORD -->
+                <div class="w-full flex flex-col items-center">
+                    <div class="relative left-0 w-[85%] m-1">
+                        <label asp-for="Password" class="font-semibold">Password</label>
+                    </div>
+                    <div class="w-[85%] border-opacity-40 relative flex items-center border cursor-pointer mb-2">
+                        <input asp-for="Password" type="password" placeholder="Digite sua senha" class="border-0 text-opacity-90 pl-14 relative z-10 w-full py-3 pr-3 text-sm bg-transparent transition ring-[2.5px] focus:ring-blue-600 hover:ring-blue-600 outline-none">
+                        <div class="absolute inset-0 flex items-center">
+                            <button asp-for="Password" type="submit" class="relative z-20 p-2 pl-4 border-none opacity-80">
+                                <svg class="text-xl w-[26px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 10H20C20.5523 10 21 10.4477 21 11V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V11C3 10.4477 3.44772 10 4 10H5V9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9V10ZM5 12V20H19V12H5ZM11 14H13V18H11V14ZM17 10V9C17 6.23858 14.7614 4 12 4C9.23858 4 7 6.23858 7 9V10H17Z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between w-[80%] mb-4">
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 cursor-pointer" checked>
+                        <span class="ml-2 text-sm">Lembrar de mim</span>
+                    </label>
+                    <a class="hover:underline text-sm" href="">Esqueci minha senha</a>
+                </div>
+                <div class="w-full flex justify-center">
+                    <input class="w-[70%] bg-[#fa6632] hover:bg-[#d6430e] transition cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2" type="submit" value="Entrar">
+                </div>
+                <div class="flex my-2">
+                    <p>Não possui uma conta?</p>
+                    <a asp-action="Register" class="hover:underline text-blue-600 font-semibold ml-2">Registrar-se</a>
+                </div>
+                <div class="flex w-[85%] justify-center items-center">
+                    <hr class="w-full">
+                    <p class="mx-4">Ou</p>
+                    <hr class="w-full">
+                </div>
+                <div class="flex items-center justify-between w-[95%]">
+                    <button type="button" class="m-2 mt-3 py-2 max-w-md flex justify-center items-center bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-[14px] font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg">
+                        <svg width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M896 786h725q12 67 12 128 0 217-91 387.5t-259.5 266.5-386.5 96q-157 0-299-60.5t-245-163.5-163.5-245-60.5-299 60.5-299 163.5-245 245-163.5 299-60.5q300 0 515 201l-209 201q-123-119-306-119-129 0-238.5 65t-173.5 176.5-64 243.5 64 243.5 173.5 176.5 238.5 65q87 0 160-24t120-60 82-82 51.5-87 22.5-78h-436v-264z"></path>
+                        </svg>
+                        Sign in with Google
+                    </button>
+                    <button type="button" class="m-2 mt-3 py-2 px-2 max-w-md  flex justify-center items-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-[14px] font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg">
+                        <svg width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"></path>
+                        </svg>
+                        Sign in with Facebook
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="w-1/2 bg-blue-950 form flex flex-col justify-center items-center">
+            <section class="bg-stars">
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </section>
+            <div class="flex items-center justify-center w-ful h-ful my-3">
+                <img src="~/svg/Let's Celebration.svg" alt="">
+            </div>
+            <div class="text-center w-full flex flex-col items-center">
+                <p class="text-white font-semibold">Junte-se a nós e desfrute de momentos inesquecíveis ao lado de pessoas especiais. Basta fazer login para começar a participar de eventos emocionantes ou até mesmo criar os seus próprios aqui, no Let's Celebration. Alegre-se, divirta-se e celebre conosco!</p>
+                <img class="w-52 mt-2" src="~/svg/taca.svg" alt="">
+            </div>
+        </div>
+    </div>
+</main>

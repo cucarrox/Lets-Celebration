@@ -1,0 +1,52 @@
+﻿@model ProjetoFinalEntra21.Models.Evento
+
+@{
+    ViewData["Title"] = "Adicionar";
+}
+
+<h4>Criar evento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Adicionar">
+            <div asp-validation-summary="ModelOnly" class="text-danger">Título</div>
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataEvento" class="control-label"></label>
+                <input asp-for="DataEvento" class="form-control" type="date"/>
+                <span asp-validation-for="DataEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoEvento.Id" class="control-label">Tipo</label>
+                <select asp-for="TipoEvento.Id" class="form-control" asp-items="ViewBag.TipoEventoId"></select>
+            </div>
+            <div class="form-group">
+                <label hidden asp-for="Administrador" class="control-label">Administrador</label>
+                <select hidden asp-for="Administrador" class="form-control" asp-items="ViewBag.UsuarioId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destinatario.Nome" class="control-label">Nome do destinatário</label>
+                <input asp-for="Destinatario.Nome" class="form-control" />
+                <span asp-validation-for="Destinatario.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destinatario.Email" class="control-label">E-mail do destinatário</label>
+                <input asp-for="Destinatario.Email" class="form-control" type="email" />
+                <span asp-validation-for="Destinatario.Email" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-sm btn-secondary">Voltar</a>
+                <input type="submit" value="Criar" class="btn btn-sm btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

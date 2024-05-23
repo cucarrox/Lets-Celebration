@@ -1,0 +1,39 @@
+﻿@model ProjetoFinalEntra21.Models.Usuario
+
+@{
+    ViewData["Title"] = "Convidar";
+}
+
+<h2>Convidar</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Convidar" asp-route-eventoId="@(ViewData["EventoId"])">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label">Nome</label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">E-mail</label>
+                <input asp-for="Email" class="form-control" type="email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <a asp-controller="Eventos" asp-action="Detalhes" asp-route-Id="@(ViewData["EventoId"])" class="btn btn-secundary btn-sm">Voltar</a>
+                <button type="submit" class="btn btn-success btn-sm"><i class="fas fa-save"></i> Salvar</button>                
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
